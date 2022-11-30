@@ -1,0 +1,70 @@
+Modellare la struttura di una tabella per memorizzare tutti 
+i dati riguardanti delle auto usate messe in vendita da un concessionario.
+____________________________________________________________________
+VEHICLE
+
+id                          INT             primary_key(UNIQUE, NOTNULL) + auto_increment
+VIN                         VARCHAR(17)     NOTNULL + UNIQUE
+brand                       VARCHAR(30)     NOTNULL
+model                       VARCHAR(50)     NOTNULL
+trim                        VARCHAR(50)     NOTNULL
+type                        VARCHAR(30)     NULL
+year_production             YEAR            NOTNULL
+year_registration           DATE            NOTNULL
+mileage                     FLOAT(8,2)      NOTNULL         ---> 000.000,00
+price                       DECIMAL(11,2)   NOTNULL         --> 000.000.000,00 
+warranty                    TINYINT         DEFAULT(12)     --> 00 months
+photos                      VARCHAR(255)    NOTNULL + DEFAULT("/img/src/default.jpg")
+
+num_prev_owners             TINYINT         NULL
+last_maintenance            DATE            NULL
+description                 TEXT            NULL
+imperfections               TEXT            NULL
+
+
+engine_power_cv/130kW       TINYINT         NOTNULL      --> 000   cv/103kW
+fuel_type                   VARCHAR(30)     NOTNULL
+fuel_consumption_l/100km    TINYINT         NULL         --> 0.0    l/100km, 
+fuel_co2emissions           TINYINT         NULL         --> 000    g/km;
+emissions_class             VARCHAR(30)     NULL
+gearbox                     VARCHAR(20)     NULL
+empty_weight                SMALLINT        NULL        --> 00.000 kg 
+seats                       TINYINT         NULL  
+doors                       TINYINT         NULL
+exterior_color              VARCHAR(30)     NULL
+interior_material           VARCHAR(50)     NULL
+
+____________________________________________________________________
+EXAMPLE
+id                          1
+VIN                         17 chars     ==> Vehicle Identification Number
+brand                       seat
+model                       ibiza
+trim                        reference
+type                        economy / mini / suv 
+year_production             2017
+year_registration           11.2018
+mileage                     78,400 km
+price                       50.000$
+warranty                    24 months
+
+num_prev_owners             2
+last_maintenance            13.10.2022
+description                 ....
+imperfections               ....
+
+
+engine_power                140 cv / 103 kW
+fuel_type                   petrol - eletric - diesel - hybrid
+fuel_consumption            3.8 l/100 km, 
+fuel_co2emissions           122 g/km;
+emissions_class             euro6
+gearbox                     manual  - semi-auto
+empty_weight                1.456 KG
+seats                       5       
+doors                       5
+exterior_color              white
+interior_material           leather
+
+
+
